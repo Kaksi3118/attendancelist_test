@@ -15,7 +15,7 @@ def test_add_attendance():
     }
 
     # When:
-    attendance.addAttendance("Jan", "Kowalski", "1", "Yes")
+    attendance.addAttendance("Jan", "Kowalski", "1", "No")
     got = attendance.attendance_list[0]
 
     # Then:
