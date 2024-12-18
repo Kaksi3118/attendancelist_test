@@ -22,7 +22,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest pytest-cov
+          pip install pytest
       - name: "Run tests"
         run: |
           pytest test_check_attendance.py
@@ -48,10 +48,10 @@ jobs:
           VALIDATE_PYTHON_RUFF: true
           CACHE_DIR: .cache/super-linter
           
-    todo-to-issue:
+    todo-to-issue:  
       runs-on: "ubuntu-latest"
       steps:
-        - uses: "actions/checkout@v4.2.2"
+        - uses: "actions/checkout@v4"
         - name: "TODO to Issue"
           uses: "alstr/todo-to-issue-action@v5"
           with:
@@ -69,8 +69,8 @@ jobs:
               git commit -m "Automatically added GitHub issue links to TODOs"
               git push origin main
             else
-            echo "No changes to commit"
-            fi     
+              echo "No changes to commit"
+            fi  
 
 
 
