@@ -25,9 +25,9 @@ jobs:
           pip install pytest pytest-cov
       - name: "Run tests"
         run: |
-          pytest test_check_attendance
-          pytest test_import_export
-          pytest test_managing_list
+          pytest test_check_attendance.py
+          pytest test_import_export.py
+          pytest test_managing_list.py
     lint:
       needs: testing
       runs-on: ubuntu-latest
