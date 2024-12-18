@@ -16,7 +16,7 @@ use.students = []
 filename = "students_Database.csv"
 use.managingList.checkIfCreated(filename) # sprawdzenie czy istnieje plik
 wantToEnd = False
-
+# TODO: Fix the formating
 while wantToEnd == False:
     managingListClass.students = use.managingList.importFromFile(filename)
     print("\n" * 100)
