@@ -2,6 +2,7 @@ import pytest
 
 from managingList import managingListClass
 
+
 def test_add_student():
     # Given:
     manager = managingListClass()
@@ -18,6 +19,7 @@ def test_add_student():
 
     # Then:
     assert got == want
+
 
 def test_delete_student(tmp_path):
     # Given:
