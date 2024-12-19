@@ -4,7 +4,7 @@ on:
     branches:
       - main
 
-permissions: write-all|read-all
+permissions: write-all
 
 jobs:
     testing:
