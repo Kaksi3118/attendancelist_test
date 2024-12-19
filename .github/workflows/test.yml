@@ -25,8 +25,30 @@ jobs:
           pytest test_check_attendance.py
           pytest test_import_export.py
           pytest test_managing_list.py
-    lint:
+    auto-formatting:
       needs: testing
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: autopep8
+        uses: peter-evans/autopep8@v2.0.0
+        with:
+          args: --exit-code --recursive --in-place --aggressive --aggressive .
+      - name: Check for modified files
+        id: git-check
+        run: echo "modified=$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+      - name: Push changes
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Automated changes"
+          git push
+    lint:
+      needs: auto-formatting
       runs-on: ubuntu-latest
 
       permissions:
