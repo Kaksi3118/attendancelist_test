@@ -1,5 +1,5 @@
 import csv
-#TODO: Fixing autoformatter
+#TODO: Fixing test to load auto-formatter
 class ImportExportClass:
     def __init__(self):
             self.studentsAttendance = []
