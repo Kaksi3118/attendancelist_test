@@ -3,12 +3,13 @@ import os
 import pandas as pd
 from setuptools.command.build_ext import if_dl
 
-#TODO: Testing the issues
+# TODO: Testing the issues
+
 
 class managingListClass:
 
     def __init__(self):
-            self.students = []
+        self.students = []
 
     def addStudent(self, name, surname, id, date):
         student = {
@@ -19,6 +20,7 @@ class managingListClass:
         }
         self.students.append(student)
         print(f"\ndodano studenta: {name} {surname}, numer studenta: {id}")
+
     def checkIfCreated(self, filename):
         try:
             if os.path.isfile(filename):
@@ -28,7 +30,8 @@ class managingListClass:
                 with open(filename, mode='w', newline='') as file:
                     writer = csv.DictWriter(file, fieldnames=fieldnames)
                     writer.writeheader()
-                print(f"Nie znaleziono bazy uczniów. \nPusty plik {filename} został utworzony.")
+                print(
+                    f"Nie znaleziono bazy uczniów. \nPusty plik {filename} został utworzony.")
         except Exception as e:
             print(f"Błąd podczas tworzenia pliku: {e}")
 
@@ -68,8 +71,10 @@ class managingListClass:
         with open(filename, mode='a', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=fieldnames)
 
-            # Przechodzimy przez listę `self.students` i zapisujemy tylko nowe rekordy
-            new_students = [student for student in self.students if student["id:"] not in existing_ids]
+            # Przechodzimy przez listę `self.students` i zapisujemy tylko nowe
+            # rekordy
+            new_students = [
+                student for student in self.students if student["id:"] not in existing_ids]
 
             if new_students:  # Sprawdzamy, czy są nowi studenci do zapisania
                 writer.writerows(new_students)
@@ -91,9 +96,9 @@ class managingListClass:
 
     def deleteStudent(self, idToDelete, filename):
         try:
-                df = pd.read_csv(filename)
-                df = df[df["id:"] != int(idToDelete)]
-                print(f"usuniecie : \n{df}")
-                df.to_csv(filename, index=False)
+            df = pd.read_csv(filename)
+            df = df[df["id:"] != int(idToDelete)]
+            print(f"usuniecie : \n{df}")
+            df.to_csv(filename, index=False)
         except Exception as e:
             print(Exception)

@@ -2,6 +2,7 @@ import pytest
 
 from import_export import ImportExportClass
 
+
 def test_import_students(tmp_path):
     # Given
     test_file = tmp_path / "students.csv"
@@ -12,10 +13,12 @@ def test_import_students(tmp_path):
 
     # When:
     got = importer.import_students(test_file)
-    want = [{"name:": "Jan", "surname:": "Kowalski", "id:": "1", "attendance:": "Yes"}]
+    want = [{"name:": "Jan", "surname:": "Kowalski",
+             "id:": "1", "attendance:": "Yes"}]
 
     # Then:
     assert got == want
+
 
 def test_export_attendance(tmp_path):
     # Given:
