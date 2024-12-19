@@ -1,7 +1,6 @@
 import pytest
 
 from managingList import managingListClass
-# TODO: Testing linter
 
 
 def test_add_student():
@@ -20,7 +19,7 @@ def test_add_student():
 
     # Then:
     assert got == want
-
+#TODO: Testing if code is good
 
 def test_delete_student(tmp_path):
     # Given:
