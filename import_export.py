@@ -31,3 +31,5 @@ class ImportExportClass:
                     print("Niewlasciwy format pliku. Uzyj .csv lub .txt.")
             except Exception as e:
                 print(f"Blad podczas eksportu: {e}")
+
+#TODO: fixing linter
