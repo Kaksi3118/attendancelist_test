@@ -6,6 +6,7 @@ import csv
 
 from managingList import managingListClass
 
+#TODO: Trying out auto-forrmater
 
 class CheckAttendanceClass:
     def __init__(self):
