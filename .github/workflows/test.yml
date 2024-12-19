@@ -36,7 +36,8 @@ jobs:
       steps:
       - uses: actions/checkout@v4.2.2
       - uses: astral-sh/ruff-action@v2
-      - run: ruff format --check
+        with:
+          args: "format --check"
     lint:
       needs: auto-formatting
       runs-on: ubuntu-latest
