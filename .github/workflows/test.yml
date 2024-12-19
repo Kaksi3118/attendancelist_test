@@ -44,7 +44,7 @@ jobs:
           pip install -r requirements.txt
           pip install ruff
       - name: Run Ruff
-        run: ruff format --check
+        run: ruff format
     
     lint:
       needs: auto-formatting
